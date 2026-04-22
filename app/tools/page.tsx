@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ToolsPage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="page-bottom-safe relative overflow-hidden">
       <SiteBackground />
       <Header />
       <PageHero

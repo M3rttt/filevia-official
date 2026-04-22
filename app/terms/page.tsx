@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="page-bottom-safe relative overflow-hidden">
       <SiteBackground />
       <Header />
       <PageHero eyebrow="Terms" title="Simple terms for a modern product." description="This page is structured and deployable, ready for your final legal wording." />

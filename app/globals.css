@@ -61,4 +61,8 @@ h4 {
   .gradient-text {
     @apply bg-[linear-gradient(90deg,#F3F7FB_0%,#D7FFF3_46%,#8FBCFF_100%)] bg-clip-text text-transparent;
   }
+
+  .page-bottom-safe {
+    @apply pb-24 md:pb-0;
+  }
 }

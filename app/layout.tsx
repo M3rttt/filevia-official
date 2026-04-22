@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 
+import { EmailCaptureProvider } from "@/components/email/email-capture-provider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${spaceGrotesk.variable} bg-canvas text-text antialiased`}>
-        {children}
+        <EmailCaptureProvider>{children}</EmailCaptureProvider>
       </body>
     </html>
   );

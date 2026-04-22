@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="page-bottom-safe relative overflow-hidden">
       <SiteBackground />
       <Header />
       <PageHero eyebrow="Contact" title="Talk to the Filevia team." description="A direct, trustworthy contact route completes the product experience." />

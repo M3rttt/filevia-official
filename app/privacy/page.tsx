@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="page-bottom-safe relative overflow-hidden">
       <SiteBackground />
       <Header />
       <PageHero eyebrow="Privacy Policy" title="Privacy that matches the product promise." description="Filevia is positioned around trust, control, and respectful handling of user workflows." />

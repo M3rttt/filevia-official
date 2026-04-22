@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Layers3, Smartphone, Sparkles } from "lucide-react";
+import { HeroEmailCapture } from "@/components/email/email-capture-provider";
 
 export function HeroSection() {
   return (
@@ -23,6 +24,7 @@ export function HeroSection() {
             <ArrowUpRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
+        <HeroEmailCapture />
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-[24px] border border-white/10 bg-white/[0.04] px-5 py-4">
             <p className="text-sm font-semibold text-white">Private by default</p>

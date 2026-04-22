@@ -12,7 +12,7 @@ import { SiteBackground } from "@/components/site/background";
 
 export default function HomePage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="page-bottom-safe relative overflow-hidden">
       <SiteBackground />
       <Header />
       <HeroSection />
