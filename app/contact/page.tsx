@@ -21,8 +21,8 @@ export default function ContactPage() {
         <div className="premium-card max-w-4xl p-8">
           <p className="text-sm leading-8 text-muted">For partnerships, support, or launch questions, use your preferred contact destination below.</p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Link href="mailto:hello@filevia.app" className="primary-button">
-              hello@filevia.app
+            <Link href="mailto:hello@filevia.io" className="primary-button">
+              hello@filevia.io
             </Link>
             <Link href="/pricing" className="secondary-button">
               View Pricing
