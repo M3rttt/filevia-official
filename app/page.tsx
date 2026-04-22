@@ -5,6 +5,7 @@ import { Header } from "@/components/sections/header";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PositioningSection } from "@/components/sections/positioning-section";
 import { PricingPreviewSection } from "@/components/sections/pricing-preview-section";
+import { TrustSection } from "@/components/sections/trust-section";
 import { ToolHighlightsSection } from "@/components/sections/tool-highlights-section";
 import { WhyFileviaSection } from "@/components/sections/why-filevia-section";
 import { SiteBackground } from "@/components/site/background";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <SiteBackground />
       <Header />
       <HeroSection />
+      <TrustSection />
       <PositioningSection />
       <WhyFileviaSection />
       <ToolHighlightsSection />

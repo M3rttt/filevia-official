@@ -6,11 +6,11 @@ export function ToolHighlightsSection() {
   return (
     <section className="site-shell py-16 sm:py-20">
       <SectionHeading
-        eyebrow="Tool highlights"
-        title="The core Filevia workflows are presented like product features, not disposable utilities."
-        description="Each page is styled to feel real and stable so the overall platform reads as usable today, not like a waitlist or landing-only concept."
+        eyebrow="Tool grid"
+        title="Every core PDF workflow, designed to feel like part of one premium platform."
+        description="Merge, split, compress, and convert with cleaner presentation, stronger hierarchy, and premium hover behavior that feels modern instead of template-driven."
       />
-      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {toolDefinitions.map((tool) => (
           <ToolCard key={tool.slug} tool={tool} />
         ))}

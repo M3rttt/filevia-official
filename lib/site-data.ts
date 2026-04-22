@@ -103,23 +103,18 @@ export const toolMap = Object.fromEntries(toolDefinitions.map((tool) => [tool.sl
 export const homeAdvantages = [
   {
     iconName: "privacy" as const,
-    title: "Privacy-first by design",
-    description: "Filevia is positioned around sensitive documents staying in your control instead of being routed through a generic upload funnel."
+    title: "Private by design",
+    description: "Sensitive files should feel protected from the first click, not pushed into a sketchy upload funnel."
   },
   {
     iconName: "offline" as const,
-    title: "Offline-friendly workflow",
-    description: "The product story is Android-first and mobile-first, designed for real moments when signal is unreliable and time is tight."
+    title: "No spammy upload traps",
+    description: "No noisy ads, fake progress states, or cheap utility-site behavior pretending to be a product."
   },
   {
     iconName: "speed" as const,
-    title: "Fast where it matters",
-    description: "The experience is shaped to feel direct, quick, and free of account friction or heavy cloud dependencies."
-  },
-  {
-    iconName: "android" as const,
-    title: "Made for Android users",
-    description: "Filevia feels like a product for the phone in your hand, not a shrunk desktop PDF tool pretending to be mobile."
+    title: "Built for mobile speed",
+    description: "Designed for Android-first users who want quick PDF actions without desktop-era friction or clutter."
   }
 ];
 
@@ -174,7 +169,7 @@ export const pricingPlans = [
     price: "$0",
     cadence: "start now",
     description: "A polished starting point for quick PDF fixes and light everyday use.",
-    features: ["3 operations per day", "Basic processing speed", "Core PDF workflows", "Android app CTA"],
+    features: ["3 tools per day", "Clean web tool access", "Mobile-first experience", "No cluttered workflow"],
     cta: "Start Free",
     href: "/tools",
     featured: false
@@ -184,8 +179,8 @@ export const pricingPlans = [
     price: "$12",
     cadence: "one-time upgrade",
     description: "A premium option for people who want Filevia as their regular PDF workspace.",
-    features: ["Unlimited operations", "Faster processing experience", "Full tool access", "Best for recurring document work"],
-    cta: "Get the App",
+    features: ["Unlimited tools", "No ads", "Faster processing", "Priority features"],
+    cta: "Upgrade to Pro",
     href: "/pricing#plans",
     featured: true
   }

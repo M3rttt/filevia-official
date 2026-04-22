@@ -5,6 +5,15 @@ import { pricingPlans } from "@/lib/site-data";
 export function PricingPreviewSection() {
   return (
     <section id="plans" className="site-shell py-16 sm:py-20">
+      <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="section-copy">
+          <span className="eyebrow">Pricing preview</span>
+          <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">Simple pricing with a premium path for power users.</h2>
+          <p className="text-base leading-7 text-muted sm:text-lg">
+            Start free, then unlock a cleaner, faster experience with Pro when Filevia becomes part of your regular workflow.
+          </p>
+        </div>
+      </div>
       <div className="grid gap-4 lg:grid-cols-2">
         {pricingPlans.map((plan) => (
           <article
