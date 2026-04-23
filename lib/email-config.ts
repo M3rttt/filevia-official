@@ -1,6 +1,5 @@
-export const BREVO_FORM_ACTION_URL = "PASTE_BREVO_FORM_URL";
-export const BREVO_EMAIL_FIELD_NAME = "email";
-
-export function hasBrevoEndpoint() {
-  return BREVO_FORM_ACTION_URL !== "PASTE_BREVO_FORM_URL";
-}
+export const EMAIL_CONFIG = {
+  endpoint: "https://formspree.io/f/mnjlowea",
+  successMessage: "You're on the list. Check your inbox.",
+  errorMessage: "Something went wrong. Please try again.",
+};
