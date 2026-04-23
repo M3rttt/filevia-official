@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { X } from "lucide-react";
 
-import { BREVO_EMAIL_FIELD_NAME, BREVO_FORM_ACTION_URL, hasBrevoEndpoint } from "@/lib/email-config";
+import { EMAIL_CAPTURE_FIELD_NAME, EMAIL_CAPTURE_FORM_ACTION_URL } from "@/lib/email-config";
 
 type CaptureContextValue = {
   openModal: () => void;
@@ -14,10 +14,9 @@ const CaptureContext = createContext<CaptureContextValue | null>(null);
 type SharedEmailFormProps = {
   buttonLabel: string;
   compact?: boolean;
-  onSuccess?: () => void;
 };
 
-function SharedEmailForm({ buttonLabel, compact = false, onSuccess }: SharedEmailFormProps) {
+function SharedEmailForm({ buttonLabel, compact = false }: SharedEmailFormProps) {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -37,26 +36,23 @@ function SharedEmailForm({ buttonLabel, compact = false, onSuccess }: SharedEmai
     setIsSubmitting(true);
 
     try {
-      if (hasBrevoEndpoint()) {
-        const formData = new FormData();
-        formData.append(BREVO_EMAIL_FIELD_NAME, email.trim());
+      const formData = new FormData();
+      formData.append(EMAIL_CAPTURE_FIELD_NAME, email.trim());
 
-        const response = await fetch(BREVO_FORM_ACTION_URL, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"
-        });
+      const response = await fetch(EMAIL_CAPTURE_FORM_ACTION_URL, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
 
-        if (response.type !== "opaque" && !response.ok) {
-          throw new Error("Submission failed");
-        }
-      } else {
-        await new Promise((resolve) => window.setTimeout(resolve, 700));
+      if (!response.ok) {
+        throw new Error("Submission failed");
       }
 
       setIsSuccess(true);
       setEmail("");
-      onSuccess?.();
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -67,15 +63,16 @@ function SharedEmailForm({ buttonLabel, compact = false, onSuccess }: SharedEmai
   if (isSuccess) {
     return (
       <div className="rounded-[26px] border border-accent/20 bg-accent/10 px-5 py-4 text-sm font-medium text-white">
-        <span className="text-accent">✓</span> You&apos;re in. Watch your inbox.
+        <span className="text-accent">✓</span> You&apos;re on the list. Check your inbox.
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-3" method="POST" action={EMAIL_CAPTURE_FORM_ACTION_URL}>
       <div className={`flex ${compact ? "flex-row" : "flex-col sm:flex-row"} gap-3`}>
         <input
+          name="email"
           type="email"
           inputMode="email"
           autoComplete="email"
@@ -84,7 +81,7 @@ function SharedEmailForm({ buttonLabel, compact = false, onSuccess }: SharedEmai
           onChange={(event) => setEmail(event.target.value)}
           className="min-h-[52px] flex-1 rounded-full border border-white/10 bg-white/5 px-5 text-sm text-white outline-none transition placeholder:text-muted focus:border-accent/40 focus:bg-white/10"
         />
-        <button type="submit" className="primary-button min-h-[52px] px-7" disabled={isSubmitting}>
+        <button type="submit" className="primary-button min-h-[52px] px-7 disabled:cursor-not-allowed disabled:opacity-70" disabled={isSubmitting}>
           {submitLabel}
         </button>
       </div>
@@ -116,11 +113,9 @@ function ExitIntentModal({ open, onClose }: { open: boolean; onClose: () => void
           <span className="eyebrow">Early Access</span>
           <div className="space-y-3">
             <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">Wait — Get Lifetime Launch Discount</h2>
-            <p className="max-w-lg text-base leading-7 text-muted">
-              Join Filevia early access list and lock special pricing.
-            </p>
+            <p className="max-w-lg text-base leading-7 text-muted">Join Filevia early access list and lock special pricing.</p>
           </div>
-          <SharedEmailForm buttonLabel="Join Waitlist" onSuccess={onClose} />
+          <SharedEmailForm buttonLabel="Join Waitlist" />
         </div>
       </div>
     </div>
@@ -205,3 +200,4 @@ export function useEmailCapture() {
 
   return context;
 }
+
