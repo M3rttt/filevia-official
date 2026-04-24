@@ -1,12 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io";
 
 export function ContactActions() {
   const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = () => {
+    window.open(gmailComposeUrl, "_blank");
+  };
 
   const handleCopy = async () => {
     try {
@@ -21,9 +24,9 @@ export function ContactActions() {
   return (
     <>
       <div className="mt-6 flex flex-wrap gap-4">
-        <Link href={gmailComposeUrl} target="_blank" rel="noreferrer" className="primary-button">
+        <button type="button" onClick={handleEmailClick} className="primary-button">
           Email Us
-        </Link>
+        </button>
         <button type="button" onClick={handleCopy} className="secondary-button">
           Copy Email
         </button>
