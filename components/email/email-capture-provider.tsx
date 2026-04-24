@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { X } from "lucide-react";
 import {
   EMAIL_CAPTURE_FIELD_NAME,
@@ -28,6 +28,13 @@ export function EmailCaptureProvider({
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setOpen(true);
+  }, 8000);
+
+  return () => clearTimeout(timer);
+}, []);
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
