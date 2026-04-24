@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io";
+const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io&su=Filevia Inquiry";
 
 export function ContactActions() {
   const [copied, setCopied] = useState(false);
