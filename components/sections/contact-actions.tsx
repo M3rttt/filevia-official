@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const gmailComposeUrl =
-  "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io&su=Filevia%20Inquiry";
+const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io";
 
 export function ContactActions() {
   const [copied, setCopied] = useState(false);
