@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
+import { ContactActions } from "@/components/sections/contact-actions";
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import { SiteBackground } from "@/components/site/background";
@@ -20,14 +20,7 @@ export default function ContactPage() {
       <section className="site-shell pb-20">
         <div className="premium-card max-w-4xl p-8">
           <p className="text-sm leading-8 text-muted">For partnerships, support, or launch questions, use your preferred contact destination below.</p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link href="mailto:hello@filevia.io" className="primary-button">
-              hello@filevia.io
-            </Link>
-            <Link href="/pricing" className="secondary-button">
-              View Pricing
-            </Link>
-          </div>
+          <ContactActions />
         </div>
       </section>
       <Footer />
