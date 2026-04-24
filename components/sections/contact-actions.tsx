@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 
-const gmailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=hello@filevia.io&su=Filevia Inquiry";
-
 export function ContactActions() {
   const [copied, setCopied] = useState(false);
 
   const handleEmailClick = () => {
-    window.open(gmailComposeUrl, "_blank");
+    const email = "hello@filevia.io";
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Filevia Inquiry")}`;
+
+    window.open(gmailUrl, "_blank");
   };
 
   const handleCopy = async () => {
