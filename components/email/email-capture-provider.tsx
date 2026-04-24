@@ -37,7 +37,7 @@ function SharedEmailForm({ buttonLabel, compact = false }: SharedEmailFormProps)
 
     try {
       const formData = new FormData();
-      formData.append(EMAIL_CAPTURE_FIELD_NAME, email.trim());
+      formData.append("email", email.trim());
 
       const response = await fetch(EMAIL_CAPTURE_FORM_ACTION_URL, {
         method: "POST",
@@ -63,13 +63,13 @@ function SharedEmailForm({ buttonLabel, compact = false }: SharedEmailFormProps)
   if (isSuccess) {
     return (
       <div className="rounded-[26px] border border-accent/20 bg-accent/10 px-5 py-4 text-sm font-medium text-white">
-        <span className="text-accent">✓</span> You&apos;re on the list. Check your inbox.
+        <span className="text-accent">✓</span> You&apos;re on the list.
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3" method="POST" action={EMAIL_CAPTURE_FORM_ACTION_URL}>
+    <form onSubmit={handleSubmit} className="space-y-3" method="POST">
       <div className={`flex ${compact ? "flex-row" : "flex-col sm:flex-row"} gap-3`}>
         <input
           name="email"
@@ -200,4 +200,3 @@ export function useEmailCapture() {
 
   return context;
 }
-
